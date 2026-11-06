@@ -7,6 +7,7 @@
   <meta name="description" content="Débora Sánchez — Digital Portfolio">
   <title>Débora Sánchez | Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
@@ -222,8 +223,6 @@
 
         <div class="hidden absolute inset-0 flex flex-col items-center justify-center text-center">
           <span class="serif text-7xl text-sage">D.</span>
-          <p class="text-sage mt-4 text-sm">Add your portrait</p>
-          <p class="text-white/40 text-xs mt-2">images/profile.jpg</p>
         </div>
 
         <div class="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-dark/95 to-transparent">
@@ -239,17 +238,12 @@
 
     </div>
   </div>
-
-  <a href="#about" class="absolute bottom-7 left-1/2 -translate-x-1/2 text-muted text-xs tracking-widest">
-    SCROLL TO EXPLORE ↓
-  </a>
 </section>
 
 <section id="about" class="py-28 md:py-36 bg-forest/60">
   <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-[.7fr_1.3fr] gap-16">
 
     <div class="reveal">
-      <p class="text-sage text-xs tracking-[.22em] uppercase mb-5">01 / About me</p>
       <h2 class="serif text-5xl md:text-6xl leading-tight">
         A little about<br>
         <span class="italic text-sage">who I am.</span>
@@ -298,7 +292,6 @@
 
     <div class="reveal flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
       <div>
-        <p class="text-sage text-xs tracking-[.22em] uppercase mb-5">03 / Selected work</p>
         <h2 class="serif text-5xl md:text-6xl">
           Main<br>
           <span class="italic text-sage">projects.</span>
@@ -320,7 +313,7 @@
         <div class="p-6">
           <div class="flex justify-between gap-3">
             <h3 class="serif text-2xl">TradeWave</h3>
-            <span class="text-xs text-muted">Project 01</span>
+            <span class="text-xs text-muted">Hackathon · 2024</span>
           </div>
 
           <p class="text-muted text-sm mt-3 leading-relaxed">
@@ -352,14 +345,13 @@
         <div class="project-image image-placeholder aspect-[16/10] overflow-hidden relative">
           <img src="images/Payvo.png" alt="Payvo project" class="w-full h-full object-cover"
             onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')">
-          <div class="hidden h-full flex items-center justify-center text-sage text-sm">Add payvo.jpg</div>
           <span class="absolute top-4 left-4 tag rounded-full px-3 py-1 text-xs text-sage">Year two</span>
         </div>
 
         <div class="p-6">
           <div class="flex justify-between gap-3">
             <h3 class="serif text-2xl">Payvo</h3>
-            <span class="text-xs text-muted">Project 02</span>
+            <span class="text-xs text-muted">Expo · 2025</span>
           </div>
 
           <p class="text-muted text-sm mt-3 leading-relaxed">
@@ -397,7 +389,6 @@
         <div class="project-image image-placeholder aspect-[16/10] overflow-hidden relative">
           <img src="images/Valtrust.png" alt="ValTrust project" class="w-full h-full object-cover"
             onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')">
-          <div class="hidden h-full flex items-center justify-center text-sage text-sm">Add valtrust.jpg</div>
           <span class="absolute top-4 left-4 tag rounded-full px-3 py-1 text-xs text-sage">Year three</span>
         </div>
 
@@ -445,7 +436,6 @@
 
     <div class="reveal flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
       <div>
-        <p class="text-sage text-xs tracking-[.22em] uppercase mb-5">04 / More work</p>
         <h2 class="serif text-5xl md:text-6xl">
           Other<br>
           <span class="italic text-sage">projects.</span>
@@ -468,10 +458,8 @@
 
       <article class="project-card reveal glass rounded-3xl overflow-hidden" data-category="data">
         <div class="project-image image-placeholder aspect-[16/10] overflow-hidden">
-          <!-- IMAGE: Add images/mero-motor.jpg -->
           <img src="images/El mero motor group.png" alt="El Mero Motor Group Power BI project" class="w-full h-full object-cover"
             onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')">
-          <div class="hidden h-full flex items-center justify-center text-sage text-sm">Add mero-motor.jpg</div>
         </div>
         <div class="p-6">
           <h3 class="serif text-2xl">El Mero Motor Group</h3>
@@ -494,7 +482,6 @@
         <div class="project-image image-placeholder aspect-[16/10] overflow-hidden">
           <img src="images/SagasTiendita.png" alt="Sagas Tiendita design project" class="w-full h-full object-cover"
             onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')">
-          <div class="hidden h-full flex items-center justify-center text-sage text-sm">Add sagas.jpg</div>
         </div>
         <div class="p-6">
           <h3 class="serif text-2xl">Sagas Tiendita</h3>
@@ -513,13 +500,10 @@
         </div>
       </article>
 
-      <!-- PET STORE -->
       <article class="project-card reveal glass rounded-3xl overflow-hidden" data-category="design development">
         <div class="project-image image-placeholder aspect-[16/10] overflow-hidden">
-          <!-- IMAGE: Add images/pet-store.jpg -->
           <img src="images/Pipo.png" alt="Pet Store project" class="w-full h-full object-cover"
             onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')">
-          <div class="hidden h-full flex items-center justify-center text-sage text-sm">Add pet-store.jpg</div>
         </div>
         <div class="p-6">
           <h3 class="serif text-2xl">Pet Store</h3>
@@ -548,7 +532,6 @@
 
     <div class="reveal flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
       <div>
-        <p class="text-sage text-xs tracking-[.22em] uppercase mb-5">04 / Learning record</p>
         <h2 class="serif text-5xl md:text-6xl">
           Courses &<br>
           <span class="italic text-sage">certifications.</span>
@@ -576,7 +559,6 @@
       </article>
       <article class="reveal glass rounded-2xl p-5 flex gap-4">
         <div class="w-16 h-20 shrink-0 rounded-lg image-placeholder overflow-hidden">
-          <!-- PHOTO: Excel Associate certificate preview: images/excel-associate.jpg -->
           <img src="images/Excel Associate.jpg" alt="Excel Associate certificate" class="w-full h-full object-cover"
             onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')">
           <div class="hidden w-full h-full items-center justify-center text-sage text-xs">PDF</div>
@@ -592,7 +574,6 @@
         <div class="w-16 h-20 shrink-0 rounded-lg image-placeholder overflow-hidden">
           <img src="images/diploma-excel-basico.jpg" alt="Platzi Excel certificate" class="w-full h-full object-cover"
             onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')">
-          <div class="hidden w-full h-full items-center justify-center text-sage text-xs">PDF</div>
         </div>
         <div>
           <p class="text-xs text-sage uppercase">Platzi · 13 hours</p>
@@ -605,7 +586,6 @@
         <div class="w-16 h-20 shrink-0 rounded-lg image-placeholder overflow-hidden">
           <img src="images/diploma-powerpoint-plantillas.jpg" alt="PowerPoint course certificate" class="w-full h-full object-cover"
             onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')">
-          <div class="hidden w-full h-full items-center justify-center text-sage text-xs">PDF</div>
         </div>
         <div>
           <p class="text-xs text-sage uppercase">Course · 14 hours</p>
@@ -618,7 +598,6 @@
         <div class="w-16 h-20 shrink-0 rounded-lg image-placeholder overflow-hidden">
           <img src="images/diploma-user-research.jpg" alt="User Research certificate" class="w-full h-full object-cover"
             onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')">
-          <div class="hidden w-full h-full items-center justify-center text-sage text-xs">PDF</div>
         </div>
         <div>
           <p class="text-xs text-sage uppercase">Course · 21 hours</p>
@@ -641,7 +620,6 @@
     <div class="reveal glass rounded-[2rem] p-8 md:p-14 grid lg:grid-cols-[1.2fr_.8fr] gap-12 items-center">
 
       <div>
-        <p class="text-sage text-xs tracking-[.22em] uppercase mb-5">05 / Get in touch</p>
 
         <h2 class="serif text-5xl md:text-7xl leading-tight">
           Let's make<br>
@@ -657,36 +635,55 @@
         </a>
       </div>
 
-      <div class="space-y-4">
+      
+        <div class="space-y-4">
 
-        <a href="mailto:deboraanchez1509@gmail.com" class="flex justify-between items-center border-b border-white/10 py-5 group">
-          <div>
-            <p class="text-xs text-muted">Email</p>
-            <p class="mt-1 group-hover:text-sage">deboraanchez1509@gmail.com</p>
-          </div>
-          <span class="text-sage text-xl">↗</span>
-        </a>
+            <a href="mailto:deboraanchez1509@gmail.com"
+            class="flex justify-between items-center border-b border-white/10 py-5 group">
+
+            <div class="flex items-center gap-5">
+                <i class="fa-regular fa-envelope text-sage text-xl w-6"></i>
+                <div>
+                    <p class="text-xs text-muted">Email</p>
+                    <p class="mt-1 group-hover:text-sage">deboraanchez1509@gmail.com</p>
+                </div>
+            </div>
+
+            <span class="text-sage text-xl">↗</span>
+            </a>
 
         <a href="https://www.linkedin.com/in/d%C3%A9bora-s%C3%A1nchez-556178430"
-           target="_blank" rel="noopener"
-           class="flex justify-between items-center border-b border-white/10 py-5 group">
-          <div>
-            <p class="text-xs text-muted">LinkedIn</p>
-            <p class="mt-1 group-hover:text-sage">Débora Sánchez</p>
-          </div>
-          <span class="text-sage text-xl">↗</span>
+            target="_blank" rel="noopener"
+            class="flex justify-between items-center border-b border-white/10 py-5 group">
+
+        <div class="flex items-center gap-5">
+            <i class="fa-brands fa-linkedin-in text-sage text-xl w-6"></i>
+            <div>
+                <p class="text-xs text-muted">LinkedIn</p>
+                <p class="mt-1 group-hover:text-sage">Débora Sánchez</p>
+            </div>
+        </div>
+
+            <span class="text-sage text-xl">↗</span>
         </a>
 
         <a href="https://github.com/Deborush"
-           target="_blank" rel="noopener"
-           class="flex justify-between items-center border-b border-white/10 py-5 group">
-          <div>
-            <p class="text-xs text-muted">GitHub</p>
-            <p class="mt-1 group-hover:text-sage">Explore my repositories</p>
-          </div>
-          <span class="text-sage text-xl">↗</span>
+            target="_blank" rel="noopener"
+            class="flex justify-between items-center border-b border-white/10 py-5 group">
+
+        <div class="flex items-center gap-5">
+            <i class="fa-brands fa-github text-sage text-xl w-6"></i>
+            <div>
+                <p class="text-xs text-muted">GitHub</p>
+                <p class="mt-1 group-hover:text-sage">Explore my repositories</p>
+            </div>
+        </div>
+
+        <span class="text-sage text-xl">↗</span>
         </a>
-      </div>
+
+    </div>
+
     </div>
   </div>
 </section>
@@ -694,9 +691,8 @@
 </main>
 
 <footer class="border-t border-white/10 py-7">
-  <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between gap-3 text-xs text-muted">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-center gap-3 text-xs text-muted">
     <p>© 2026 Débora Sánchez. All rights reserved.</p>
-    <p>Designed with intention · Built with HTML & Tailwind CSS</p>
   </div>
 </footer>
 
