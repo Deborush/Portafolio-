@@ -1,0 +1,705 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Débora Sánchez — Digital Portfolio">
+  <title>Débora Sánchez | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: "#101510",
+            forest: "#18251c",
+            panel: "#202d23",
+            moss: "#879b68",
+            sage: "#b6c39b",
+            cream: "#f0eee4",
+            muted: "#a8b1a2"
+          },
+          fontFamily: {
+            sans: ["DM Sans", "sans-serif"],
+            display: ["Playfair Display", "serif"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      background: #101510;
+      color: #f0eee4;
+      font-family: "DM Sans", sans-serif;
+    }
+
+    .serif { font-family: "Playfair Display", serif; }
+
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(220,230,210,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(220,230,210,.035) 1px, transparent 1px);
+      background-size: 45px 45px;
+    }
+
+    .glass {
+      background: rgba(32,45,35,.72);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(220,230,210,.12);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-card {
+      transition: transform .3s ease, border-color .3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(182,195,155,.55);
+    }
+
+    .project-image img {
+      transition: transform .5s ease;
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.05);
+    }
+
+    .tag {
+      border: 1px solid rgba(182,195,155,.25);
+      background: rgba(135,155,104,.1);
+    }
+
+    .outline-btn {
+      border: 1px solid rgba(182,195,155,.4);
+      transition: .2s ease;
+    }
+
+    .outline-btn:hover,
+    .filter-btn.active {
+      background: #b6c39b;
+      color: #101510;
+      border-color: #b6c39b;
+    }
+
+    .solid-btn {
+      background: #b6c39b;
+      color: #101510;
+      transition: .2s ease;
+    }
+
+    .solid-btn:hover {
+      background: #d0dbb9;
+      transform: translateY(-2px);
+    }
+
+    .nav-link { color: #b7c0b2; }
+    .nav-link:hover { color: #d5e2bd; }
+
+    .image-placeholder {
+      background: linear-gradient(135deg,#344635,#1b261e);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+
+<body class="selection:bg-sage selection:text-dark">
+
+<header class="fixed top-0 inset-x-0 z-50 bg-dark/90 backdrop-blur-xl border-b border-white/10">
+  <nav class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+
+    <a href="#home" class="flex items-center gap-3">
+      <span class="w-10 h-10 rounded-full border border-moss flex items-center justify-center serif text-sage text-xl">D.</span>
+      <span class="text-sm tracking-[.15em] uppercase font-semibold">
+        Débora <span class="text-sage">Sánchez</span>
+      </span>
+    </a>
+
+    <div class="hidden md:flex gap-8 text-sm">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#certificates" class="nav-link">Certificates</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+
+    <a href="#contact" class="hidden md:block solid-btn rounded-full px-5 py-3 text-sm font-semibold">
+      Let's connect ↗
+    </a>
+
+    <button id="menuButton" class="md:hidden text-sage text-2xl" aria-label="Open menu" aria-expanded="false">
+      ☰
+    </button>
+  </nav>
+
+  <div id="mobileMenu" class="hidden md:hidden bg-forest border-t border-white/10 px-6 py-6 space-y-5">
+    <a href="#about" class="block nav-link">About</a>
+    <a href="#projects" class="block nav-link">Journey</a>
+    <a href="#certificates" class="block nav-link">Certificates</a>
+    <a href="#contact" class="block nav-link">Contact</a>
+  </div>
+</header>
+
+<main>
+
+<section id="home" class="relative min-h-screen flex items-center pt-28 pb-24 overflow-hidden grid-bg">
+
+  <div class="absolute -top-40 -right-20 w-[500px] h-[500px] rounded-full bg-moss/10 blur-[120px]"></div>
+  <div class="absolute bottom-0 -left-40 w-[400px] h-[400px] rounded-full bg-sage/5 blur-[100px]"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-16 items-center">
+
+    <div class="reveal">
+      <div class="inline-flex items-center gap-3 rounded-full border border-moss/30 bg-moss/10 px-4 py-2 text-xs tracking-widest uppercase text-sage mb-8">
+        <span class="w-2 h-2 bg-sage rounded-full animate-pulse"></span>
+        Digital Portfolio · 2026
+      </div>
+
+      <p class="text-muted tracking-[.2em] uppercase text-sm mb-5">Hello, I'm</p>
+
+      <h1 class="serif text-6xl sm:text-7xl lg:text-8xl leading-[1.05]">
+        Débora<br>
+        <span class="italic text-sage">Sánchez.</span>
+      </h1>
+
+      <p class="text-lg text-[#c5cbbf] leading-relaxed mt-8 max-w-xl">
+        A curious learner, creative problem-solver, and Supérate student turning ideas into meaningful digital experiences.
+      </p>
+
+      <div class="flex flex-wrap gap-4 mt-9">
+        <a href="#projects" class="solid-btn rounded-full px-7 py-3 font-semibold text-sm">
+          Explore my work ↘
+        </a>
+        <a href="#about" class="outline-btn rounded-full px-7 py-3 text-sage text-sm">
+          Get to know me
+        </a>
+      </div>
+
+      <div class="flex flex-wrap gap-7 mt-14 text-sm text-muted">
+        <span>✳ Three-year Supérate journey</span>
+        <span>⌁ El Salvador</span>
+      </div>
+    </div>
+
+    <div class="reveal relative max-w-md mx-auto w-full">
+
+      <div class="absolute -inset-4 border border-moss/30 rounded-[2rem] rotate-3"></div>
+
+      <div class="relative rounded-[1.7rem] overflow-hidden image-placeholder aspect-[4/5]">
+
+        <img
+          src="images/profile.jpg"
+          alt="Débora Sánchez"
+          class="w-full h-full object-cover"
+          onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')"
+        >
+
+        <div class="hidden absolute inset-0 flex flex-col items-center justify-center text-center">
+          <span class="serif text-7xl text-sage">D.</span>
+          <p class="text-sage mt-4 text-sm">Add your portrait</p>
+          <p class="text-white/40 text-xs mt-2">images/profile.jpg</p>
+        </div>
+
+        <div class="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-dark/95 to-transparent">
+          <p class="text-sage text-xs uppercase tracking-widest">Always learning</p>
+          <p class="serif text-2xl mt-1">Curiosity in action.</p>
+        </div>
+      </div>
+
+      <div class="absolute -left-10 top-16 glass rounded-xl px-5 py-4 hidden sm:block">
+        <p class="text-xs text-muted">My mindset</p>
+        <p class="text-sage font-semibold text-sm mt-1">Learn · Create · Grow</p>
+      </div>
+
+    </div>
+  </div>
+
+  <a href="#about" class="absolute bottom-7 left-1/2 -translate-x-1/2 text-muted text-xs tracking-widest">
+    SCROLL TO EXPLORE ↓
+  </a>
+</section>
+
+<section id="about" class="py-28 md:py-36 bg-forest/60">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-[.7fr_1.3fr] gap-16">
+
+    <div class="reveal">
+      <p class="text-sage text-xs tracking-[.22em] uppercase mb-5">01 / About me</p>
+      <h2 class="serif text-5xl md:text-6xl leading-tight">
+        A little about<br>
+        <span class="italic text-sage">who I am.</span>
+      </h2>
+    </div>
+
+    <div class="reveal">
+      <p class="text-xl md:text-2xl text-[#d4d9cf] leading-relaxed">
+        I am a final-year General High School student and part of the ¡Supérate! program, where I have spent three years developing my skills in technology, English, leadership, and personal growth.
+      </p>
+
+      <p class="text-muted leading-relaxed mt-6">
+        I enjoy combining creativity and technology to solve problems, organize ideas, and build projects with purpose. I value responsibility, teamwork, attention to detail, and the willingness to keep learning. I am especially interested in food production, quality, and innovation.
+      </p>
+
+      <div class="grid sm:grid-cols-2 gap-4 mt-10">
+
+        <div class="glass rounded-2xl p-6">
+          <span class="text-sage text-2xl">✳</span>
+          <h3 class="font-semibold mt-4">What drives me</h3>
+          <p class="text-sm text-muted mt-2">Learning new things and turning challenges into opportunities to improve.</p>
+        </div>
+
+        <div class="glass rounded-2xl p-6">
+          <span class="text-sage text-2xl">⌘</span>
+          <h3 class="font-semibold mt-4">What I bring</h3>
+          <p class="text-sm text-muted mt-2">Organization, creativity, commitment, and a collaborative mindset.</p>
+        </div>
+
+      </div>
+
+      <div class="flex flex-wrap gap-2 mt-8">
+        <span class="tag rounded-full px-4 py-2 text-xs text-sage">Problem solving</span>
+        <span class="tag rounded-full px-4 py-2 text-xs text-sage">Teamwork</span>
+        <span class="tag rounded-full px-4 py-2 text-xs text-sage">Leadership</span>
+        <span class="tag rounded-full px-4 py-2 text-xs text-sage">Adaptability</span>
+        <span class="tag rounded-full px-4 py-2 text-xs text-sage">Attention to detail</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="projects" class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="reveal flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
+      <div>
+        <p class="text-sage text-xs tracking-[.22em] uppercase mb-5">03 / Selected work</p>
+        <h2 class="serif text-5xl md:text-6xl">
+          Main<br>
+          <span class="italic text-sage">projects.</span>
+        </h2>
+      </div>
+      <p class="text-muted max-w-sm leading-relaxed">
+        Three of my main projects, representing the ideas, skills, and experience I developed throughout my three years at Supérate.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+      <article class="project-card reveal glass rounded-3xl overflow-hidden" data-category="design development">
+        <div class="project-image image-placeholder aspect-[16/10] overflow-hidden relative">
+          <img src="images/Tradewave.jpg" alt="TradeWave project" class="w-full h-full object-cover"
+            onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')">
+          <span class="absolute top-4 left-4 tag rounded-full px-3 py-1 text-xs text-sage">Year one</span>
+        </div>
+
+        <div class="p-6">
+          <div class="flex justify-between gap-3">
+            <h3 class="serif text-2xl">TradeWave</h3>
+            <span class="text-xs text-muted">Project 01</span>
+          </div>
+
+          <p class="text-muted text-sm mt-3 leading-relaxed">
+            A platform created during a hackathon to help Salvadoran high school students explore universities, scholarships, and exchange programs. It connects opportunities with each student's grades, abilities, and interests.
+          </p>
+
+          <div class="mt-5">
+            <p class="text-xs uppercase tracking-wider text-sage">My role & contributions</p>
+            <p class="text-sm text-muted mt-2">UI design and app development. Contributed to the visual interface and the digital product experience.</p>
+          </div>
+
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="tag rounded-full px-3 py-1 text-xs">Figma</span>
+            <span class="tag rounded-full px-3 py-1 text-xs">Power Apps</span>
+          </div>
+
+          <div class="border-t border-white/10 mt-6 pt-5 space-y-3">
+            <p class="text-xs text-muted uppercase tracking-wider">Project evidence</p>
+            <a href="https://www.figma.com/design/J9gdXVTdukbyK5o2LITqQw/tradewave--Community-?node-id=0-1&t=MWMGV9etJX2ZEfT7-1"
+               target="_blank" rel="noopener"
+               class="block text-sm text-sage hover:text-white underline underline-offset-4">
+              Figma design / prototype ↗
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reveal glass rounded-3xl overflow-hidden" data-category="design development">
+        <div class="project-image image-placeholder aspect-[16/10] overflow-hidden relative">
+          <img src="images/Payvo.png" alt="Payvo project" class="w-full h-full object-cover"
+            onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')">
+          <div class="hidden h-full flex items-center justify-center text-sage text-sm">Add payvo.jpg</div>
+          <span class="absolute top-4 left-4 tag rounded-full px-3 py-1 text-xs text-sage">Year two</span>
+        </div>
+
+        <div class="p-6">
+          <div class="flex justify-between gap-3">
+            <h3 class="serif text-2xl">Payvo</h3>
+            <span class="text-xs text-muted">Project 02</span>
+          </div>
+
+          <p class="text-muted text-sm mt-3 leading-relaxed">
+            An Expo 2025 project that uses AI to help people understand their income and spending habits. Payvo offers personalized guidance to manage money, save, and build an emergency fund.
+          </p>
+
+          <div class="mt-5">
+            <p class="text-xs uppercase tracking-wider text-sage">My role & contributions</p>
+            <p class="text-sm text-muted mt-2">Contributed to the design and development process, interface decisions, and project presentation.</p>
+          </div>
+
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="tag rounded-full px-3 py-1 text-xs">Figma</span>
+            <span class="tag rounded-full px-3 py-1 text-xs">Web development</span>
+            <span class="tag rounded-full px-3 py-1 text-xs">PowerPoint</span>
+          </div>
+
+          <div class="border-t border-white/10 mt-6 pt-5 space-y-3">
+            <p class="text-xs text-muted uppercase tracking-wider">Project evidence</p>
+            <a href="https://www.figma.com/design/9p52h1xLgNQNNvUYHRvKHE/Payvo?node-id=0-1&t=YzwaX7ujdBBwYKxe-1" class="block text-sm text-sage underline underline-offset-4">
+              Figma prototype ↗
+            </a>
+            <a href="http://127.0.0.1:5502/Pantalla%20de%20inicio/index.html" class="block text-sm text-sage underline underline-offset-4">
+              Website / live demo ↗
+            </a>
+            <a href="Files/Payvo_Presentation.pdf" target="_blank" rel="noopener"
+               class="block text-sm text-sage underline underline-offset-4">
+              Project presentation (PDF) ↗
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reveal glass rounded-3xl overflow-hidden" data-category="design development">
+        <div class="project-image image-placeholder aspect-[16/10] overflow-hidden relative">
+          <img src="images/Valtrust.png" alt="ValTrust project" class="w-full h-full object-cover"
+            onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')">
+          <div class="hidden h-full flex items-center justify-center text-sage text-sm">Add valtrust.jpg</div>
+          <span class="absolute top-4 left-4 tag rounded-full px-3 py-1 text-xs text-sage">Year three</span>
+        </div>
+
+        <div class="p-6">
+          <div class="flex justify-between gap-3">
+            <h3 class="serif text-2xl">ValTrust</h3>
+            <span class="text-xs text-muted">ExpoTech · 2026</span>
+          </div>
+
+          <p class="text-muted text-sm mt-3 leading-relaxed">
+            A property valuation platform developed for ExpoTech and adapted to the Salvadoran context. It considers factors such as a home's condition, location, and other relevant characteristics to estimate its value.
+          </p>
+
+          <div class="mt-5">
+            <p class="text-xs uppercase tracking-wider text-sage">My role & contributions</p>
+            <p class="text-sm text-muted mt-2">Lead Designer & Co-creator. Contributed to the interface design, visual direction, and development of the project.</p>
+          </div>
+
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="tag rounded-full px-3 py-1 text-xs">Figma</span>
+            <span class="tag rounded-full px-3 py-1 text-xs">Web design</span>
+            <span class="tag rounded-full px-3 py-1 text-xs">Teamwork</span>
+          </div>
+
+          <div class="border-t border-white/10 mt-6 pt-5 space-y-3">
+            <p class="text-xs text-muted uppercase tracking-wider">Project evidence</p>
+            <a href="https://valtrust-website.vercel.app/" target="_blank" rel="noopener"
+               class="block text-sm text-sage underline underline-offset-4">
+              Visit live website ↗
+            </a>
+            <a href="https://www.figma.com/design/Y1C4CwJ9eTaHZuCNNSU7dA/Valtrust?node-id=0-1&t=faXWSO71VMHEonUJ-1"
+               class="block text-sm text-sage underline underline-offset-4">
+              Figma prototype ↗
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="other-projects" class="py-20">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="reveal flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
+      <div>
+        <p class="text-sage text-xs tracking-[.22em] uppercase mb-5">04 / More work</p>
+        <h2 class="serif text-5xl md:text-6xl">
+          Other<br>
+          <span class="italic text-sage">projects.</span>
+        </h2>
+      </div>
+      <p class="text-muted max-w-sm leading-relaxed">
+        Other projects and experiences where I explored different tools, developed new skills, and put my ideas into practice.
+      </p>
+    </div>
+
+    <div class="reveal flex flex-wrap gap-2 mb-9">
+      <button class="filter-btn active outline-btn rounded-full px-5 py-2 text-sm" data-filter="all">All work</button>
+      <button class="filter-btn outline-btn rounded-full px-5 py-2 text-sm text-sage" data-filter="design">UI / UX Design</button>
+      <button class="filter-btn outline-btn rounded-full px-5 py-2 text-sm text-sage" data-filter="development">Development</button>
+      <button class="filter-btn outline-btn rounded-full px-5 py-2 text-sm text-sage" data-filter="data">Data</button>
+      <button class="filter-btn outline-btn rounded-full px-5 py-2 text-sm text-sage" data-filter="leadership">Leadership</button>
+    </div>
+
+    <div id="projectGrid" class="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+
+      <article class="project-card reveal glass rounded-3xl overflow-hidden" data-category="data">
+        <div class="project-image image-placeholder aspect-[16/10] overflow-hidden">
+          <!-- IMAGE: Add images/mero-motor.jpg -->
+          <img src="images/El mero motor group.png" alt="El Mero Motor Group Power BI project" class="w-full h-full object-cover"
+            onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')">
+          <div class="hidden h-full flex items-center justify-center text-sage text-sm">Add mero-motor.jpg</div>
+        </div>
+        <div class="p-6">
+          <h3 class="serif text-2xl">El Mero Motor Group</h3>
+          <p class="text-muted text-sm mt-3 leading-relaxed">
+            A data visualization project developed using Power BI, focused on presenting information through interactive reports and visual dashboards.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="tag rounded-full px-3 py-1 text-xs">Power BI</span>
+            <span class="tag rounded-full px-3 py-1 text-xs">Data visualization</span>
+          </div>
+          <div class="border-t border-white/10 mt-6 pt-5">
+            <a href="Files/El Mero Motor Group.pbix" class="text-sm text-sage underline underline-offset-4">
+              View project evidence ↗
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reveal glass rounded-3xl overflow-hidden" data-category="design">
+        <div class="project-image image-placeholder aspect-[16/10] overflow-hidden">
+          <img src="images/SagasTiendita.png" alt="Sagas Tiendita design project" class="w-full h-full object-cover"
+            onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')">
+          <div class="hidden h-full flex items-center justify-center text-sage text-sm">Add sagas.jpg</div>
+        </div>
+        <div class="p-6">
+          <h3 class="serif text-2xl">Sagas Tiendita</h3>
+          <p class="text-muted text-sm mt-3 leading-relaxed">
+            A design project created in Figma, exploring the visual identity and interface of a small online store.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="tag rounded-full px-3 py-1 text-xs">Figma</span>
+            <span class="tag rounded-full px-3 py-1 text-xs">UI design</span>
+          </div>
+          <div class="border-t border-white/10 mt-6 pt-5">
+            <a href="https://www.figma.com/design/oRxv3BYGz94hfUC87zoYHc/Untitled?node-id=0-1&t=uQzdecuXsFxELmo1-1" class="text-sm text-sage underline underline-offset-4">
+              View Figma design ↗
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- PET STORE -->
+      <article class="project-card reveal glass rounded-3xl overflow-hidden" data-category="design development">
+        <div class="project-image image-placeholder aspect-[16/10] overflow-hidden">
+          <!-- IMAGE: Add images/pet-store.jpg -->
+          <img src="images/Pipo.png" alt="Pet Store project" class="w-full h-full object-cover"
+            onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')">
+          <div class="hidden h-full flex items-center justify-center text-sage text-sm">Add pet-store.jpg</div>
+        </div>
+        <div class="p-6">
+          <h3 class="serif text-2xl">Pet Store</h3>
+          <p class="text-muted text-sm mt-3 leading-relaxed">
+            A digital project focused on creating a user-friendly experience for an online pet store.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="tag rounded-full px-3 py-1 text-xs">Figma</span>
+            <span class="tag rounded-full px-3 py-1 text-xs">Web design</span>
+          </div>
+          <div class="border-t border-white/10 mt-6 pt-5">
+            <a href="https://www.figma.com/design/xcuxHifDQO59a30UGrdHQP/Untitled?node-id=0-1&t=1k7e32VTqHwkW3X1-1" class="text-sm text-sage underline underline-offset-4">
+              View project ↗
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<section id="certificates" class="py-28 md:py-36 bg-forest/60">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="reveal flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+      <div>
+        <p class="text-sage text-xs tracking-[.22em] uppercase mb-5">04 / Learning record</p>
+        <h2 class="serif text-5xl md:text-6xl">
+          Courses &<br>
+          <span class="italic text-sage">certifications.</span>
+        </h2>
+      </div>
+
+      <p class="text-muted max-w-sm leading-relaxed">
+        A selection of courses and certifications that represent my commitment to continuous learning.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <article class="reveal glass rounded-2xl p-5 flex gap-4">
+        <div class="w-16 h-20 shrink-0 rounded-lg image-placeholder overflow-hidden">
+          <img src="images/Excel Expert.jpg" alt="Excel Expert certificate" class="w-full h-full object-cover"
+            onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')">
+          <div class="hidden w-full h-full items-center justify-center text-sage text-xs">PDF</div>
+        </div>
+        <div>
+          <p class="text-xs text-sage uppercase">Microsoft certification</p>
+          <h3 class="font-semibold mt-1">Excel Expert</h3>
+          <p class="text-xs text-muted mt-1">Advanced spreadsheet skills</p>
+          <a href="files/Excel Expert.pdf" target="_blank" class="text-xs text-sage underline underline-offset-4 inline-block mt-3">View certificate ↗</a>
+        </div>
+      </article>
+      <article class="reveal glass rounded-2xl p-5 flex gap-4">
+        <div class="w-16 h-20 shrink-0 rounded-lg image-placeholder overflow-hidden">
+          <!-- PHOTO: Excel Associate certificate preview: images/excel-associate.jpg -->
+          <img src="images/Excel Associate.jpg" alt="Excel Associate certificate" class="w-full h-full object-cover"
+            onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')">
+          <div class="hidden w-full h-full items-center justify-center text-sage text-xs">PDF</div>
+        </div>
+        <div>
+          <p class="text-xs text-sage uppercase">Microsoft certification</p>
+          <h3 class="font-semibold mt-1">Excel Associate</h3>
+          <p class="text-xs text-muted mt-1">Spreadsheet skills</p>
+          <a href="files/Excel Associate.pdf" target="_blank" class="text-xs text-sage underline underline-offset-4 inline-block mt-3">View certificate ↗</a>
+        </div>
+      </article>
+      <article class="reveal glass rounded-2xl p-5 flex gap-4">
+        <div class="w-16 h-20 shrink-0 rounded-lg image-placeholder overflow-hidden">
+          <img src="images/diploma-excel-basico.jpg" alt="Platzi Excel certificate" class="w-full h-full object-cover"
+            onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')">
+          <div class="hidden w-full h-full items-center justify-center text-sage text-xs">PDF</div>
+        </div>
+        <div>
+          <p class="text-xs text-sage uppercase">Platzi · 13 hours</p>
+          <h3 class="font-semibold mt-1">Excel Básico</h3>
+          <p class="text-xs text-muted mt-1">Course completion</p>
+          <a href="files/diploma-excel-basico.pdf" target="_blank" class="text-xs text-sage underline underline-offset-4 inline-block mt-3">View certificate ↗</a>
+        </div>
+      </article>
+      <article class="reveal glass rounded-2xl p-5 flex gap-4">
+        <div class="w-16 h-20 shrink-0 rounded-lg image-placeholder overflow-hidden">
+          <img src="images/diploma-powerpoint-plantillas.jpg" alt="PowerPoint course certificate" class="w-full h-full object-cover"
+            onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')">
+          <div class="hidden w-full h-full items-center justify-center text-sage text-xs">PDF</div>
+        </div>
+        <div>
+          <p class="text-xs text-sage uppercase">Course · 14 hours</p>
+          <h3 class="font-semibold mt-1">PowerPoint: Templates & Views</h3>
+          <p class="text-xs text-muted mt-1">Course completion</p>
+          <a href="files/diploma-powerpoint-plantillas.pdf" target="_blank" class="text-xs text-sage underline underline-offset-4 inline-block mt-3">View certificate ↗</a>
+        </div>
+      </article>
+      <article class="reveal glass rounded-2xl p-5 flex gap-4">
+        <div class="w-16 h-20 shrink-0 rounded-lg image-placeholder overflow-hidden">
+          <img src="images/diploma-user-research.jpg" alt="User Research certificate" class="w-full h-full object-cover"
+            onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')">
+          <div class="hidden w-full h-full items-center justify-center text-sage text-xs">PDF</div>
+        </div>
+        <div>
+          <p class="text-xs text-sage uppercase">Course · 21 hours</p>
+          <h3 class="font-semibold mt-1">User Research</h3>
+          <p class="text-xs text-muted mt-1">Course completion</p>
+          <a href="files/diploma-user-research.pdf" target="_blank" class="text-xs text-sage underline underline-offset-4 inline-block mt-3">View certificate ↗</a>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="contact" class="py-28 md:py-36 relative overflow-hidden">
+
+  <div class="absolute -right-32 top-0 w-96 h-96 rounded-full bg-moss/10 blur-[100px]"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6">
+    <div class="reveal glass rounded-[2rem] p-8 md:p-14 grid lg:grid-cols-[1.2fr_.8fr] gap-12 items-center">
+
+      <div>
+        <p class="text-sage text-xs tracking-[.22em] uppercase mb-5">05 / Get in touch</p>
+
+        <h2 class="serif text-5xl md:text-7xl leading-tight">
+          Let's make<br>
+          <span class="italic text-sage">something matter.</span>
+        </h2>
+
+        <p class="text-muted mt-7 max-w-lg leading-relaxed">
+          Thank you for taking the time to explore my portfolio. I am always open to learning, collaborating, and connecting with people who are passionate about creating and improving.
+        </p>
+
+        <a href="mailto:deboraanchez1509@gmail.com" class="solid-btn inline-block rounded-full px-7 py-3 font-semibold text-sm mt-9">
+          Send me an email ↗
+        </a>
+      </div>
+
+      <div class="space-y-4">
+
+        <a href="mailto:deboraanchez1509@gmail.com" class="flex justify-between items-center border-b border-white/10 py-5 group">
+          <div>
+            <p class="text-xs text-muted">Email</p>
+            <p class="mt-1 group-hover:text-sage">deboraanchez1509@gmail.com</p>
+          </div>
+          <span class="text-sage text-xl">↗</span>
+        </a>
+
+        <a href="https://www.linkedin.com/in/d%C3%A9bora-s%C3%A1nchez-556178430"
+           target="_blank" rel="noopener"
+           class="flex justify-between items-center border-b border-white/10 py-5 group">
+          <div>
+            <p class="text-xs text-muted">LinkedIn</p>
+            <p class="mt-1 group-hover:text-sage">Débora Sánchez</p>
+          </div>
+          <span class="text-sage text-xl">↗</span>
+        </a>
+
+        <a href="https://github.com/Deborush"
+           target="_blank" rel="noopener"
+           class="flex justify-between items-center border-b border-white/10 py-5 group">
+          <div>
+            <p class="text-xs text-muted">GitHub</p>
+            <p class="mt-1 group-hover:text-sage">Explore my repositories</p>
+          </div>
+          <span class="text-sage text-xl">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="border-t border-white/10 py-7">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between gap-3 text-xs text-muted">
+    <p>© 2026 Débora Sánchez. All rights reserved.</p>
+    <p>Designed with intention · Built with HTML & Tailwind CSS</p>
+  </div>
+</footer>
+
+<script src="scrippt.js"></script>
+</body>
+</html>
